@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A local, dependency free heuristic checker for Java 8 to 21 and Spring Boot 2 to 3 upgrades.">
+  <title>Java Upgrade Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">Migration companion</p>
+      <h1>Java Upgrade Checker</h1>
+      <p class="lede">Paste a Maven or Gradle build file, add a few Java imports if useful, and get a focused list of likely blockers for Java 21 and Spring Boot 3.</p>
+    </header>
+    <section class="input-card" aria-labelledby="input-heading">
+      <div class="section-heading"><div><h2 id="input-heading">Project configuration</h2><p>Everything runs in this page. Nothing is uploaded.</p></div><button id="load-example" class="button secondary" type="button">Load example</button></div>
+      <label for="config-input">Paste pom.xml, build.gradle, build.gradle.kts, and optional Java imports</label>
+      <textarea id="config-input" spellcheck="false" placeholder="Paste your project files here..."></textarea>
+      <div class="actions"><button id="analyze" class="button primary" type="button">Analyze project</button><span class="hint">Heuristic checks, not a build</span></div>
+    </section>
+    <section class="results-card" aria-live="polite" aria-labelledby="results-heading">
+      <div class="section-heading"><div><h2 id="results-heading">Findings</h2><p id="summary">Ready to analyze</p></div><button id="copy-markdown" class="button secondary" type="button" disabled>Copy as Markdown</button></div>
+      <div id="results"><div class="empty"><p>Paste a build file or load the example to see migration checks.</p></div></div>
+    </section>
+  </main>
+  <script src="rules.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
