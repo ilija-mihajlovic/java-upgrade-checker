@@ -61,7 +61,7 @@
       'Spring Boot 3 is the generation that moves the framework to Jakarta EE and supports the Java 21 migration path.',
       'Upgrade the parent or plugin to a supported Spring Boot 3 release, then follow its migration guide and test the service.', SOURCES.boot))
 
-    const sourceVersions = versionsFor(text, /(?:maven.compiler.(?:source|target)|<source>|<target>|sourceCompatibility|targetCompatibility)\s*[=:>\"]?\s*([0-9]+)(?:\D|$)/gi)
+    const sourceVersions = versionsFor(text, /(?:maven.compiler.(?:source|target)|<source>|<target>|sourceCompatibility|targetCompatibility)[\s=:>\"']*([0-9]+)(?:\D|$)/gi)
     const toolchainVersion = firstVersion(text, [/languageVersion\s*=\s*JavaLanguageVersion\.of\((\d+)\)/i, /JavaLanguageVersion\.of\((\d+)\)/i])
     add(sourceVersions.some(version => Number(version) < 17), finding('blocker', 'Java source or target is below 17',
       'Spring Boot 3 requires Java 17 or newer, so a source or target level below 17 prevents the upgrade.',
